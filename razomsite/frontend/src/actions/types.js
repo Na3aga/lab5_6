@@ -1,0 +1,13 @@
+export const GET_PAGES = "GET_PAGES";
+export const DELETE_PAGE = "DELETE_PAGE";
+export const ADD_PAGE = "ADD_PAGE";
+export const GET_ERRORS = "GET_ERRORS";
+export const CREATE_MESSAGE = "CREATE_MESSAGE";
+export const USER_LOADING = "USER_LOADING";
+export const USER_LOADED = "USER_LOADED";
+export const AUTH_ERROR = "AUTH_ERROR";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAILURE = "LOGIN_FAILURE";
+export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
+export const REGISTER_SUCCESS = " REGISTER_SUCCESS";
+export const REGISTER_FAILURE = "REGISTER_FAILURE";
