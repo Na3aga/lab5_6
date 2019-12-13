@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 import { register } from "../../actions/auth";
 import { createMessage } from "../../actions/messages";
 
+import "./formstyle.css";
+
 export class Register extends Component {
   state = {
     username: "",
@@ -45,56 +47,56 @@ export class Register extends Component {
     const { username, email, password, password2 } = this.state;
 
     return (
-      <div className="col-md-6 m-auto">
-        <div className="card card-body mt-5">
-          <h2 className="text-center">Register</h2>
+      <div className="form-container">
+        <div className="form-card">
+          <h2 className="text-center monserat">Register</h2>
           <form onSubmit={this.onSubmit}>
-            <div className="form-group">
-              <label>Username</label>
+            <div className="form-div">
+              <label className="monserat m10">Username</label>
               <input
                 type="text"
-                className="form-control"
+                className="form-input text-center m10"
                 name="username"
                 onChange={this.onChange}
                 value={username}
               />
             </div>
-            <div className="form-group">
-              <label>Email</label>
+            <div className="form-div">
+              <label className="monserat m10">Email</label>
               <input
                 type="email"
-                className="form-control"
+                className="form-input text-center m10"
                 name="email"
                 onChange={this.onChange}
                 value={email}
               />
             </div>
-            <div className="form-group">
-              <label>Password</label>
+            <div className="form-div">
+              <label className="monserat m10">Password</label>
               <input
                 type="password"
-                className="form-control"
+                className="form-input text-center m10"
                 name="password"
                 onChange={this.onChange}
                 value={password}
               />
             </div>
-            <div className="form-group">
-              <label>Confirm Password</label>
+            <div className="form-div">
+              <label className="monserat m10">Confirm Password</label>
               <input
                 type="password"
-                className="form-control"
+                className="form-input text-center m10"
                 name="password2"
                 onChange={this.onChange}
                 value={password2}
               />
             </div>
-            <div className="form-group">
+            <div className="text-center">
               <button type="submit" className="btn btn-primary">
                 Register
               </button>
             </div>
-            <p>
+            <p className="monserat">
               Already have an account? <Link to="/login">Login</Link>
             </p>
           </form>

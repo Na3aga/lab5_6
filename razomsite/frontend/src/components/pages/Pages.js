@@ -15,8 +15,8 @@ export class Pages extends Component {
   render() {
     return (
       <ul>
-        {this.props.pages.map(page => (
-          <li key={page.id}>
+        {this.props.pages.map((page, i) => (
+          <li key={i}>
             <h2>{"id " + page.id}</h2>
             <h3>{page.header}</h3>
             <button

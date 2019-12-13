@@ -6,7 +6,8 @@ import {
   LOGIN_FAILURE,
   LOGOUT_SUCCESS,
   REGISTER_SUCCESS,
-  REGISTER_FAILURE
+  REGISTER_FAILURE,
+  USER_INFO_LOADED
 } from "../actions/types";
 
 const initialState = {
@@ -50,6 +51,13 @@ export default function(state = initialState, action) {
         isAuthenticated: false,
         isLoading: false,
         user: null
+      };
+    case USER_INFO_LOADED:
+      localStorage.setItem("picture", action.payload);
+      return {
+        ...state,
+        isAuthenticated: true,
+        isLoading: false
       };
     default:
       return state;

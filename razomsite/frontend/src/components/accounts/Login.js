@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../../actions/auth";
 
+import "./formstyle.css";
+
 export class Login extends Component {
   state = {
     username: "",
@@ -32,36 +34,34 @@ export class Login extends Component {
     const { username, password } = this.state;
 
     return (
-      <div className="col-md-6 m-auto">
-        <div className="card card-body mt-5">
-          <h2 className="text-center">Login</h2>
+      <div className="form-container">
+        <div className="form-card ">
+          <h2 className="text-center monserat">Login</h2>
           <form onSubmit={this.onSubmit}>
-            <div className="form-group">
-              <label>Username</label>
+            <div className="form-div">
+              <label className="monserat m10">Username</label>
               <input
                 type="text"
-                className="form-control"
+                className="form-input text-center m10"
                 name="username"
                 onChange={this.onChange}
                 value={username}
               />
             </div>
-            <div className="form-group">
-              <label>Password</label>
+            <div className="form-div">
+              <label className="monserat m10">Password</label>
               <input
                 type="password"
-                className="form-control"
+                className="form-input text-center m10"
                 name="password"
                 onChange={this.onChange}
                 value={password}
               />
             </div>
-            <div className="form-group">
-              <button type="submit" className="btn btn-primary">
-                Login
-              </button>
+            <div className="text-center">
+              <input type="submit" className="btn btn-primary" value="Login" />
             </div>
-            <p>
+            <p className="monserat">
               Don't have an account? <Link to="/register">Register</Link>
             </p>
           </form>

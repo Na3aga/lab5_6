@@ -9,7 +9,8 @@ import {
   LOGIN_FAILURE,
   LOGOUT_SUCCESS,
   REGISTER_SUCCESS,
-  REGISTER_FAILURE
+  REGISTER_FAILURE,
+  USER_INFO_LOADED
 } from "./types";
 
 // CHECK TOKEN AND LOAD USER
@@ -23,6 +24,21 @@ export const loadUser = () => (dispatch, getState) => {
       dispatch({
         type: USER_LOADED,
         payload: res.data
+      });
+    })
+    .catch(err => {
+      dispatch(returnErrors(err.response.data, err.response.status));
+      dispatch({
+        type: AUTH_ERROR
+      });
+    });
+  axios
+    .get("/api/userinfo", tokenConfig(getState))
+    .then(res => {
+      console.log(res.data[0]);
+      dispatch({
+        type: USER_INFO_LOADED,
+        payload: res.data[0].avatar
       });
     })
     .catch(err => {

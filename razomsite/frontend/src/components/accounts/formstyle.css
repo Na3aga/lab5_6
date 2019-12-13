@@ -1,0 +1,68 @@
+.form-container {
+  position: absolute;
+  left: 50%;
+  margin-left: -10%;
+
+  top: 50%;
+  margin-top: -10%;
+}
+
+.form-card {
+  background-color: #f7e5f1;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.m10 {
+  margin: 10px;
+}
+
+.p10 {
+  padding: 10px;
+}
+
+.form-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 10px;
+  text-align: center;
+}
+
+.form-input {
+  padding: 0.25em;
+  font-size: 1em;
+  border: #d36bb0;
+  border-radius: 5px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.monserat {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.btn {
+  font-size: 1.25em;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.5em;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #c5168c;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #d36bb0;
+}

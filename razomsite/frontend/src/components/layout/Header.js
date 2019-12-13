@@ -4,11 +4,20 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
 
+import { withRouter } from "react-router-dom";
+
+import "./mystyle.css";
+
 export class Header extends Component {
+
   static propTypes = {
     auth: PropTypes.object.isRequired,
     logout: PropTypes.func.isRequired
   };
+
+  redirectToLogin() {
+    this.props.history.push("/login");
+  }
 
   render() {
     const { isAuthenticated, user } = this.props.auth;
@@ -40,49 +49,41 @@ export class Header extends Component {
     );
 
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a className="navbar-brand" href="">
-          {user ? user.username : "Razom"}
-        </a>
-        {/* { user & (<img src></img>)} */}
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarColor02"
-          aria-controls="navbarColor02"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="collapse navbar-collapse" id="navbarColor02">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <a className="nav-link" href="">
-                Home <span className="sr-only">(current)</span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="">
-                Features
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="">
-                Pricing
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="">
-                About
-              </a>
-            </li>
-            {isAuthenticated ? authLinks : guestLinks}
-          </ul>
+      <header>
+        <div className="header-container">
+          <a id="logo_nav" href="">
+            <img src="/static/welcomepage/img/razomlogo.svg" alt="" />
+          </a>
+          <nav id="top_nav">
+            <ul>
+              <li>
+                <a href="#">Team</a>
+              </li>
+              <li>
+                <a href="#">Services</a>
+              </li>
+              <li>
+                <a href="#">Portfolio</a>
+              </li>
+              <li>
+                <a href="#">Contacts</a>
+              </li>
+              <li>
+                <a
+                  onClick={
+                    isAuthenticated ? this.props.logout : this.redirectToLogin.bind(this)
+                  }
+                >
+                  <i id="portfolio_icon" className="material-icons">
+                    account_circle
+                  </i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div id="top_nav_rectangle"></div>
         </div>
-      </nav>
+      </header>
     );
   }
 }
@@ -91,4 +92,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { logout })(Header);
+export default connect(mapStateToProps, { logout })(withRouter(Header));
